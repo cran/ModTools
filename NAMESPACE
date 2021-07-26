@@ -1,0 +1,105 @@
+
+export(
+  "ROC", "Response", "VarImp",
+  "SplitTrainTest", "LogitBoost","BreuschPaganTest", "TModC",
+  "Rules", "LeafRates", "CP", "Node", "FitMod",
+  "PlotLift", "Tune", "RefLevel","BestCut","OverSample","UnderSample","RobSummary"
+)
+
+
+
+importFrom("stats", "predict", "vcov", "model.frame", "model.response", "na.pass",
+           ".getXlevels", "coef", "lm.fit", "model.matrix","pchisq", "terms", "C", "na.omit",
+           "cov2cor", "formula", "model.weights", "naprint",
+           "printCoefmat", "residuals", "symnum", "update.formula",
+           "df.residual", "pnorm", "pt", "qt","anova", "as.formula", "confint", "drop.scope",
+           "drop1", "ftable", "glm", "model.extract", "reshape",
+           "update", "AIC", "coefficients", "confint.default",
+           "deviance", "qnorm", "runif", "dnorm", "sd")
+importFrom("graphics", "dotchart", "grid", "plot", "par", "legend", "lines", "points")
+importFrom("grDevices", "palette")
+importFrom("methods", "slot")
+importFrom("utils", "capture.output", "head", "write.table")
+
+importFrom("nnet", "nnet", "multinom")
+importFrom("MASS","lda","qda","stepAIC", "polr","loglm")
+
+importFrom("pROC","roc","auc","coords", "ci.coords")
+importFrom("randomForest", "randomForest","importance", "tuneRF")
+importFrom("DescTools","Unwhich", "Conf","Cstat","Sort","BrierScore","DoCall","Pal","OddsRatio",
+           "Format","SetAlpha","Desc", "ModSummary", "DescToolsOptions", "Fmt","IsDichotomous",
+           "PseudoR2", "SetNames", "Mode", "BoxedText","Append", "ColToOpaque", "Sample")
+importFrom("C50","C5.0","C5imp")
+importFrom("e1071","svm")
+importFrom("rpart","rpart","path.rpart","printcp","plotcp")
+importFrom("pscl", "zeroinfl")
+importFrom("relaimpo", "calc.relimp")
+importFrom("rpart.plot", "rpart.plot")
+importFrom("lattice", "barchart","panel.rect","panel.text","panel.barchart")
+importFrom("survival", "Surv", "survreg", "survreg.distributions")
+
+importFrom("class", "knn","knn1", "SOM")
+importFrom("lmtest","waldtest","lrtest")
+importFrom("car", "linearHypothesis")
+importFrom("robustbase", "lmrob")
+
+importFrom("NeuralNetTools", "plotnet")
+importFrom("car", "Anova")
+importFrom("naivebayes", "naive_bayes")
+
+importFrom("sandwich", "vcovHC")
+importFrom("AER", "tobit")
+
+
+S3method(Desc, rpart)
+
+S3method(summary, FitMod)
+S3method(print, FitMod)
+S3method(plot, FitMod)
+S3method(predict, FitMod)
+S3method(Conf, FitMod)
+S3method(Cstat, FitMod)
+S3method(BrierScore, FitMod)
+S3method(OddsRatio, FitMod)
+
+
+S3method(predict, LogitBoost)
+
+S3method(VarImp, FitMod)
+S3method(VarImp, default)
+S3method(VarImp, lm)
+
+
+S3method(Conf, polr)
+S3method(OddsRatio, polr)
+
+S3method(print, Rules)
+S3method(print, TModC)
+S3method(plot, TModC)
+
+S3method(plot, VarImp)
+S3method(print, VarImp)
+
+S3method(LogitBoost, formula)
+S3method(LogitBoost, default)
+
+S3method(confint, ROC)
+
+
+S3method(Tune, default)
+S3method(print, Tune)
+
+
+S3method(print, LeafRates)
+S3method(print, CP)
+S3method(plot, CP)
+
+S3method(print, node)
+
+
+S3method(drop1, FitMod)
+S3method(plot, LeafRates)
+
+
+
+
