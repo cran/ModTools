@@ -2,8 +2,9 @@
 export(
   "ROC", "Response", "VarImp",
   "SplitTrainTest", "LogitBoost","BreuschPaganTest", "TModC",
-  "Rules", "LeafRates", "CP", "Node", "FitMod",
-  "PlotLift", "Tune", "RefLevel","BestCut","OverSample","UnderSample","RobSummary"
+  "Rules", "LeafRates", "CP", "Node", "FitMod", "CoeffDiffCI",
+  "PlotLift", "Tune", "RefLevel","BestCut","OverSample","UnderSample","RobSummary", "PredictCI",
+  "zeroinfl"
 )
 
 
@@ -15,14 +16,18 @@ importFrom("stats", "predict", "vcov", "model.frame", "model.response", "na.pass
            "df.residual", "pnorm", "pt", "qt","anova", "as.formula", "confint", "drop.scope",
            "drop1", "ftable", "glm", "model.extract", "reshape",
            "update", "AIC", "coefficients", "confint.default",
-           "deviance", "qnorm", "runif", "dnorm", "sd")
+           "deviance", "qnorm", "runif", "dnorm", "sd",
+           "binomial", "delete.response", "dnbinom", "dpois",
+           "glm.fit", "lm.wfit", "logLik", "make.link", "optim",
+           "pnbinom", "poisson", "ppois", "quantile")
+
 importFrom("graphics", "dotchart", "grid", "plot", "par", "legend", "lines", "points")
 importFrom("grDevices", "palette")
 importFrom("methods", "slot")
-importFrom("utils", "capture.output", "head", "write.table")
+importFrom("utils", "capture.output", "head", "write.table", "tail")
 
 importFrom("nnet", "nnet", "multinom")
-importFrom("MASS","lda","qda","stepAIC", "polr","loglm")
+importFrom("MASS","glm.nb","lda","qda","stepAIC", "polr","loglm")
 
 importFrom("pROC","roc","auc","coords", "ci.coords")
 importFrom("randomForest", "randomForest","importance", "tuneRF")
@@ -32,7 +37,9 @@ importFrom("DescTools","Unwhich", "Conf","Cstat","Sort","BrierScore","DoCall","P
 importFrom("C50","C5.0","C5imp")
 importFrom("e1071","svm")
 importFrom("rpart","rpart","path.rpart","printcp","plotcp")
-importFrom("pscl", "zeroinfl")
+
+# importFrom("pscl", "zeroinfl")
+
 importFrom("relaimpo", "calc.relimp")
 importFrom("rpart.plot", "rpart.plot")
 importFrom("lattice", "barchart","panel.rect","panel.text","panel.barchart")
@@ -50,6 +57,22 @@ importFrom("naivebayes", "naive_bayes")
 importFrom("sandwich", "vcovHC")
 importFrom("AER", "tobit")
 
+
+
+## methods for class zeroinfl
+  S3method("print", "zeroinfl")
+  S3method("print", "summary.zeroinfl")
+  S3method("summary", "zeroinfl")
+  S3method("coef", "zeroinfl")
+  S3method("vcov", "zeroinfl")
+  S3method("logLik", "zeroinfl")
+  S3method("predict", "zeroinfl")
+  S3method("residuals", "zeroinfl")
+  S3method("fitted", "zeroinfl")
+#  S3method("predprob", "zeroinfl")
+  S3method("terms", "zeroinfl")
+  S3method("model.matrix", "zeroinfl")
+  S3method("extractAIC", "zeroinfl")
 
 S3method(Desc, rpart)
 
