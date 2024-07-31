@@ -1,12 +1,12 @@
 
 export(
   "ROC", "Response", "VarImp",
-  "SplitTrainTest", "LogitBoost","BreuschPaganTest", "TModC",
+  "SplitTrainTest", "LogitBoost", "TModC",
   "Rules", "LeafRates", "CP", "Node", "FitMod", "CoeffDiffCI",
-  "PlotLift", "Tune", "RefLevel","BestCut","OverSample","UnderSample","RobSummary", "PredictCI",
+  "PlotLift", "Tune", "RefLevel","BestCut","OverSample","UnderSample",
+  "RobSummary", "PredictCI","BreuschPaganTest",
   "zeroinfl"
 )
-
 
 
 importFrom("stats", "predict", "vcov", "model.frame", "model.response", "na.pass",
@@ -19,11 +19,14 @@ importFrom("stats", "predict", "vcov", "model.frame", "model.response", "na.pass
            "deviance", "qnorm", "runif", "dnorm", "sd",
            "binomial", "delete.response", "dnbinom", "dpois",
            "glm.fit", "lm.wfit", "logLik", "make.link", "optim",
-           "pnbinom", "poisson", "ppois", "quantile")
+           "pnbinom", "poisson", "ppois", "quantile",
+           "BIC", "binom.test", "complete.cases","pf",
+           "mcnemar.test", "nobs", "setNames", "weights", "xtabs","lm")
 
-importFrom("graphics", "dotchart", "grid", "plot", "par", "legend", "lines", "points")
+importFrom("graphics", "dotchart", "grid", "plot", "par", "legend", "lines",
+           "points", "mosaicplot")
 importFrom("grDevices", "palette")
-importFrom("methods", "slot")
+importFrom("methods", "slot", "slotNames")
 importFrom("utils", "capture.output", "head", "write.table", "tail")
 
 importFrom("nnet", "nnet", "multinom")
@@ -31,9 +34,10 @@ importFrom("MASS","glm.nb","lda","qda","stepAIC", "polr","loglm")
 
 importFrom("pROC","roc","auc","coords", "ci.coords")
 importFrom("randomForest", "randomForest","importance", "tuneRF")
-importFrom("DescTools","Unwhich", "Conf","Cstat","Sort","BrierScore","DoCall","Pal","OddsRatio",
-           "Format","SetAlpha","Desc", "ModSummary", "DescToolsOptions", "Fmt","IsDichotomous",
-           "PseudoR2", "SetNames", "Mode", "BoxedText","Append", "ColToOpaque", "Sample")
+importFrom("DescTools","Unwhich", "Sort","DoCall","Pal","OddsRatio",
+           "Format","SetAlpha","Desc", "DescToolsOptions", "Fmt","IsDichotomous",
+           "SetNames", "Mode", "BoxedText","Append", "ColToOpaque", "Sample",
+           "Conf","Cstat","BrierScore","PseudoR2")
 importFrom("C50","C5.0","C5imp")
 importFrom("e1071","svm")
 importFrom("rpart","rpart","path.rpart","printcp","plotcp")
@@ -82,7 +86,7 @@ S3method(plot, FitMod)
 S3method(predict, FitMod)
 S3method(Conf, FitMod)
 S3method(Cstat, FitMod)
-S3method(BrierScore, FitMod)
+# S3method(BrierScore, FitMod)
 S3method(OddsRatio, FitMod)
 
 
@@ -93,8 +97,62 @@ S3method(VarImp, default)
 S3method(VarImp, lm)
 
 
+# S3method(Conf, default)
+# S3method(Conf, table)
+# S3method(Conf, matrix)
+# S3method(Conf, rpart)
+# S3method(Conf, multinom)
+# S3method(Conf, glm)
+# S3method(Conf, randomForest)
+# S3method(Conf, svm)
+# S3method(Conf, regr)
+# S3method(Conf, lda)
+# S3method(Conf, qda)
+
+
+
 S3method(Conf, polr)
 S3method(OddsRatio, polr)
+
+
+
+# S3method(Cstat, default)
+# S3method(Cstat, glm)
+
+# S3method(BrierScore, default)
+# S3method(BrierScore, FitMod)
+# S3method(BrierScore, mult)
+
+
+# S3method(BrierScoreCI, default)
+# S3method(BrierScoreCI, glm)
+
+
+# S3method(CstatCI, default)
+# S3method(CstatCI, glm)
+
+
+# S3method(MAE, default)
+# S3method(MAE, lm)
+
+# S3method(MAPE, default)
+# S3method(MAPE, lm)
+
+# S3method(SMAPE, default)
+# S3method(SMAPE, lm)
+
+# S3method(MSE, default)
+# S3method(MSE, lm)
+
+# S3method(RMSE, default)
+# S3method(RMSE, lm)
+
+# S3method(ModSummary, glm)
+# S3method(ModSummary, lm)
+# S3method(ModSummary, lmrob)
+# S3method(ModSummary, OddsRatio)
+
+
 
 S3method(print, Rules)
 S3method(print, TModC)

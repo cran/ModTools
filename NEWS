@@ -1,10 +1,18 @@
 
 
+ModTools 0.9.5 (2024-07-28)
+-----------------------------
+
+NEW FUNCTIONS ADDED:
+  * Started to roxygenize the documentation. This will be continued.
+
+
+
 ModTools 0.9.5 (2024-01-25)
 -----------------------------
 
 NEW FUNCTIONS ADDED:
-  * CoeffDiffCI calculates a confidence interval for two
+  * CoeffDiffCI calculates a confidence interval for the difference of two
     coefficients of a linear model
   * PredictCI returns the confidence intervals for predictions
     based on a logistic regression.

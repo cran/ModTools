@@ -473,6 +473,9 @@ SplitTrainTest <- function(x, p=0.1, seed=NULL, logical=FALSE){
   switch(type,
          "prob"={
            res <- attr(res, "probabilities")
+           if(object$nclasses == 2){
+             res <- res[, c(2, 1)]
+           }
          },
 
          "class"={
@@ -916,15 +919,6 @@ Cstat.FitMod <- function(x, pos=NULL, ...) {
   else
     NA
 }
-
-
-BrierScore.FitMod <- function(x, scaled = FALSE, ...){
-  resp <- Response(x)
-  if(is.factor(resp))
-    resp <- as.numeric(resp) - 1
-  DescTools:::BrierScore.default(resp=resp, pred=predict(x, type="prob"), scaled = scaled)
-}
-
 
 
 # test  -------------------------

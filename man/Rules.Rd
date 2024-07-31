@@ -18,7 +18,7 @@ Rules(x, node = NULL, leafonly = FALSE)
 \item{node}{integer vector, defining the nodes whose details are required.}
 \item{leafonly}{boolean, defining if only the rules leading to end nodes ("leafs") should be returned.}
 }
-\details{The function builds upon the original function \code{\link{path.rpart}}, which is bulky in some situations.
+\details{The function builds upon the original function \code{\link[rpart]{path.rpart}}, which is bulky in some situations.
 }
 \value{a list with the rules
 \item{frame }{the frame of the rpart}
@@ -31,7 +31,7 @@ Rules(x, node = NULL, leafonly = FALSE)
 }
 
 \seealso{
- \code{\link{rpart}}, \code{\link{path.rpart}}
+ \code{\link[rpart]{rpart}}, \code{\link[rpart]{path.rpart}}
  }
 \examples{
 r.rp <- FitMod(diabetes ~ ., data=d.pima, fitfn="rpart")
